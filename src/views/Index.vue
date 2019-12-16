@@ -1,6 +1,6 @@
 <template>
 	<div class="box">
-		<div class="row ">
+		<!-- <div class="row ">
 			<div class="col-3" v-for="(item, index) in topics" :key="index">
 				<div class="card link shadow">
 					<router-link :to="{ path: '/topic/' + item.id }"><img :src="item.logo" class="logo" /></router-link>
@@ -12,7 +12,7 @@
 					</p>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="row">
 			
@@ -58,7 +58,7 @@
 							<p class="meta">{{ item.fans }}个粉丝</p>
 							<p class="meta">写了{{ item.articles }}篇文章</p>
 						</div>
-						<div class="flex-center-y"><button class="btn btn-follow">关注</button></div>
+						<div class="flex-center-y"><button class="btn btn-follow" :class="{'btn-follow':item.isThumbUp===true}" @click="changeThumbUps(item)">关注</button></div>
 					</div>
 				</div>
 			</div>
@@ -72,7 +72,8 @@ export default {
 		return {
 			articles: [],
 			users: [],
-			topics: []
+			topics: [],
+			"isThumbUp": false,
 		};
 	},
 	created() {
@@ -88,6 +89,18 @@ export default {
 			// console.log(res.data.data);
 			this.topics = res.data.data;
 		});
+	},
+	methods: {
+		changeThumbUps(item) {
+			if (item.isThumbUp == true) {
+				item.isThumbUp = false
+				item.thumbUpCount--
+			} else {
+				item.isThumbUp = true
+				item.thumbUpCount++
+			}
+		}
+		
 	}
 };
 </script>

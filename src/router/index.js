@@ -12,6 +12,7 @@ import Users from '@/views/Users.vue'
 import ArticleDetail from '@/views/ArticleDetail.vue'
 import TopicDetail from '@/views/TopicDetail.vue'
 import UserDetail from '@/views/UserDetail.vue'
+import issue from '@/views/issue.vue'
 
 import Search from '@/views/Search.vue'
 import SearchUser from '@/views/SearchUser.vue'
@@ -38,6 +39,10 @@ const routes = [{
 			{
 				path: 'articles',
 				component: Articles
+			},
+			{
+				path: 'issue',
+				component: issue
 			},
 			{
 				path: 'article/:id',

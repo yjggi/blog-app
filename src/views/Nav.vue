@@ -8,6 +8,7 @@
 					<li class="nav-item"><router-link to="/topics">专题</router-link></li>
 					<li class="nav-item"><router-link to="/articles">文章</router-link></li>
 					<li class="nav-item"><router-link to="/users">作者</router-link></li>
+					<li class="nav-item"><router-link to="/issue">发文章</router-link></li>
 				</ul>
 				<ul class="bl-df-left box-left">
 					<li class="nav-item"><input type="text" class="input-box" placeholder="搜索" v-model="keywords" /></li>
