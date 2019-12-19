@@ -23,7 +23,8 @@
 						</div>
 						<div class="row-bt">
 							<router-link :to="{ path: '/article/' + item.article.id }"><input type="button" value="编辑"></router-link>
-							<input type="button" value="删除">
+							<input type="button" value="删除" @click="delate(item.article.id)"/>
+							
 						</div>
 					</div>
 					
@@ -51,7 +52,23 @@ export default {
 			this.userVo = res.data.data;
 		});
 	},
-	methods: {}
+	methods: {
+		delate(articleid){
+			this.axios({
+				method:'delete',
+				url:this.GLOBAL.baseUrl+'/article/' + articleid,
+				data:JSON.stringify(this.articleid)
+			}).then(res =>{
+				if(res.data.msg ==='成功'){
+					alert('已删除');
+					this.$router.push();window.location.reload();
+				}else{
+					alert('失败');
+				}
+			});
+			
+		}
+	}
 };
 </script>
 

@@ -15,38 +15,42 @@
 		</div> -->
 
 		<div class="row">
+			<img src="../assets/img/222.jpg" class="imgg">
 			
 			<div class="col-8">
 				<h3>热门文章</h3>
 				<div v-for="(item, index) in articles" :key="index" class="col-12">
-					<div class="media-wraaper border">
-						<div class="media-left">
+					<div class="media-wraaper border ">
+						<!-- <div class="media-left">
 							<router-link :to="{ path: '/user/' + item.article.userId }">
 							<img :src="item.author.avatar" class="avatar-lg link" />
 							</router-link>
 							<p>{{ item.author.nickname }}</p>
 							<strong>来自</strong>
 							<p>{{ item.topic.topicName }}</p>
-						</div>
+						</div> -->
 						<div class="media-middle flex flex-around flex-left">
-							<router-link :to="{ path: '/article/' + item.article.id }">
+							<div class="text-box">
+								<router-link :to="{ path: '/article/' + item.article.id }">
 								<div class="subtitle">
 									 {{ item.article.title }} 
 								</div>
-							</router-link>
-							<p class="sub-title link">{{ item.article.summary }}</p>
+								</router-link>
+								<p class="sub-title link">{{ item.article.summary }}</p>
+							</div>
+							
 							<p>
 								<span class="meta gutter"><i class="iconfont">&#xe60c;</i><span class="advance-btn">{{ item.article.comments }}</span></span>
-								<span class="meta"><i class="iconfont">&#xe631;</i><span class="advance-btn">{{ item.article.likes }}</span></span>
+								<span class="meta"><i class="iconfont">&#xe615;</i><span class="advance-btn">{{ item.article.likes }}</span></span>
 							</p>
 						</div>
-						<div class="media-right"><img :src="item.article.thumbnail" alt="" /></div>
+						<div class="media-right "><img :src="item.article.thumbnail" alt="" class="text2" /></div>
 					</div>
 				</div>
 			</div>
 			<div class="col-4">
 				<h3>热门作者</h3>
-				<div v-for="(item, index) in users" :key="index" class="row">
+				<div v-for="(item, index) in users" :key="index" class="row" >
 					<div class="col-12 border box-box">
 						<div class="flex-center-y">
 							<router-link :to="{ path: '/user/' + item.id }">
@@ -55,10 +59,27 @@
 							<p class="sub-title">{{ item.nickname }}</p>
 						</div>
 						<div class="flex-center-y">
-							<p class="meta">{{ item.fans }}个粉丝</p>
-							<p class="meta">写了{{ item.articles }}篇文章</p>
+							<p class="meta">{{ item.fans }}粉丝</p>
+							<p class="meta">{{ item.articles }}篇文章</p>
 						</div>
-						<div class="flex-center-y"><button class="btn btn-follow" :class="{'btn-follow':item.isThumbUp===true}" @click="changeThumbUps(item)">关注</button></div>
+						<!-- <button v-if="book.isThumbUp!==true" class="btn"  @click="changeThumbUps(book)" >
+								<i class="iconfont">&#xe644;</i>
+								关注
+						<tton>
+						<button v-if="book.isThumbUp===true" class="btn1"  @click="changeThumbUps(book)" >
+							<i class="iconfont">&#xe676;</i>
+								已关注
+						<tton> -->
+						<div class="flex-center-y">
+							
+							
+							
+							<button v-if="isDao.isThumbUp!==true" class="btn btn-follow"  @click="changeThumbUps(isDao,item)">
+								关注</button>
+							<button v-if="isDao.isThumbUp===true" class="btn btn-follow"  @click="changeThumbUps(isDao,item)">
+								已关注</button>
+								<!-- :class="{'btn-follow':item.isThumbUp!==true}" -->
+							</div>
 					</div>
 				</div>
 			</div>
@@ -73,7 +94,10 @@ export default {
 			articles: [],
 			users: [],
 			topics: [],
-			"isThumbUp": false,
+			isDao:{
+				"isThumbUp": true,
+			}
+			
 		};
 	},
 	created() {
@@ -91,15 +115,18 @@ export default {
 		});
 	},
 	methods: {
-		changeThumbUps(item) {
-			if (item.isThumbUp == true) {
-				item.isThumbUp = false
-				item.thumbUpCount--
+		changeThumbUps(isDao) {
+			if (isDao.isThumbUp == true) {
+				isDao.isThumbUp = false
+				// item.thumbUpCount--
 			} else {
-				item.isThumbUp = true
-				item.thumbUpCount++
+				isDao.isThumbUp = true
+				// item.thumbUpCount++
 			}
-		}
+		},
+		// chan(item,isDao){
+		// 	isDao.isThumbUp=item.status
+		// }
 		
 	}
 };
@@ -113,14 +140,21 @@ export default {
 .logo:hover {
 	opacity: 0.6;
 }
-.box{
-	
+.imgg{
+	width: 100%;
+	height: 200px;
+}
+.text-box{
+	height:100px;
+	width: 100%;
 }
 .box-box {
 	display: flex;
 	justify-content: space-around;
 	height: 70px;
-	padding: 10px;
+	/* padding: 10px; */
 }
-
+.text2{
+	height: 100%;
+}
 </style>

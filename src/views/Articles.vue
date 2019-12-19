@@ -23,7 +23,7 @@
 					<p class="sub-title link">{{ item.article.summary }}</p>
 					<p>
 						<span class="meta gutter"><i class="iconfont">&#xe60c;</i><span class="advance-btn">{{ item.article.comments }}</span></span>
-						<span class="meta"><i class="iconfont">&#xe631;</i><span class="advance-btn">{{ item.article.likes }}</span></span>
+						<span class="meta"><i class="iconfont">&#xe615;</i><span class="advance-btn">{{ item.article.likes }}</span></span>
 					</p>
 				</div>
 				<div class="media-right"><img :src="item.article.thumbnail" /></div>

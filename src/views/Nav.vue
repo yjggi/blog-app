@@ -11,8 +11,9 @@
 					<li class="nav-item"><router-link to="/issue">发文章</router-link></li>
 				</ul>
 				<ul class="bl-df-left box-left">
-					<li class="nav-item"><input type="text" class="input-box" placeholder="搜索" v-model="keywords" /></li>
-					<li class="nav-item"><button class="btn btn-lg btn-rd dark-border" @click="search">搜索</button></li>
+					<li class="nav-item"><input type="text" class="input-box" placeholder="请输入搜索内容" v-model="keywords" /></li>
+					<li class="nav-item"><i class="iconfont2 bt3" @click="search">&#xe602;</i></li>
+					<!-- <button class="btn btn-lg btn-rd dark-border warning-fill" @click="search">搜索</button> -->
 				</ul>
 				<ul class="bl-df-left box-right">
 					<li class="nav-item box-text" v-if="!this.user"><router-link to="/sign-in">登录</router-link></li>
@@ -51,6 +52,9 @@ export default {
 };
 </script>
 <style scoped>
+a:hover{
+	color: rgb(141, 197, 242);
+}
 /* 路由激活高亮样式 */
 .router-link-active {
 	background-color: rgba(141, 197, 242,0.5);
@@ -72,4 +76,11 @@ export default {
 	top: 20px;
 	left: -30px;
 }
+.bt3{
+	position: relative;
+	top: -2px;
+	left: 2px;
+	cursor: pointer;
+}
+
 </style>
