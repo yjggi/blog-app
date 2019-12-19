@@ -1,15 +1,15 @@
 <template>
 	<div class="row">
-		<div v-for="(item, index) in articles" :key="index" class="col-12">
-			<div class="media-wraaper bg shadow">
-				<div class="media-left">
+		<div v-for="(item, index) in articles" :key="index" class="col-12 position2">
+			<div class="media-wraaper bg shadow ">
+				<!-- <div class="media-left">
 					<router-link :to="{ path: '/user/' + item.article.userId }">
 					<img :src="item.author.avatar" class="avatar-lg link" />
 					</router-link>
 					<p>{{ item.author.nickname }}</p>
 					<strong>来自</strong>
 					<p>{{ item.topic.topicName }}</p>
-				</div>
+				</div> -->
 				<div class="media-middle flex flex-left">
 					<router-link :to="{ path: '/article/' + item.article.id }">
 						<div class="subtitle">
@@ -84,5 +84,9 @@ export default {
 	background-image: url(../assets/img/article.png);
 	background-size: contain;
 	background-position-y: 100px;
+}
+.position2{
+	position: relative;
+	left: 100px;
 }
 </style>

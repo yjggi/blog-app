@@ -54,6 +54,7 @@ export default {
 <style scoped>
 a:hover{
 	color: rgb(141, 197, 242);
+	text-shadow: 1px 1px 3px #fff;
 }
 /* 路由激活高亮样式 */
 .router-link-active {

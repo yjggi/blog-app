@@ -2,20 +2,20 @@
 	<div>
 		<div class="row">
 			<div v-for="(item, index) in topics" :key="index" class="col-4 flex flex-center">
-				<div class="card shadow flex flex-top-y">
+				<div class="card shadow flex flex-top-y p-1">
 					<div class="card-head flex flex-center">
-						<p class="title">{{ item.topicName }}</p>
-						<router-link :to="{ path: '/topic/' + item.id }"><img :src="item.logo" class="logo" /></router-link>
+						<router-link :to="{ path: '/topic/' + item.id }"><img :src="item.logo" class="p-2" /></router-link>
+						<p class="title p-3">{{ item.topicName }}</p>
 					</div>
 					<div class="card-body flex flex-left">
 						<p class="sub-title">{{ item.description.slice(0,30) }}</p>
-						<p class="meta">{{ item.articles }}篇文章，{{ item.fans }}人关注</p>
+						<p class="meta">{{ item.articles }}篇文章，{{ item.follows }}人关注</p>
 					</div>
 					<div><a :href="item.homepage" class="link" @click="go(item.homepage)">专题主页</a></div>
 				</div>
 			</div>
 		</div>
-		<div class="row"><button class="btn btn-lg btn-rd dark-fill" @click="loadMore">点击加载更多</button></div>
+		<div class="row"><button class="btn btn-lg btn-rd warning-fill position1" @click="loadMore">点击加载更多</button></div>
 	</div>
 </template>
 
@@ -99,5 +99,18 @@ export default {
 .card a {
 	color: rgb(0, 98, 89);
 	font-weight: 700;
+}
+.p-1{
+	position: relative;
+}
+.p-2{
+	position: relative;
+	left: 3px;
+	top: 10px;
+}
+.p-3{
+	position: absolute;
+	left: 170px;
+	top: 40px;
 }
 </style>

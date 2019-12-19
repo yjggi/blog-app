@@ -1,7 +1,7 @@
 <template>
 	<div class="row">
 		<div v-for="(item, index) in topics" :key="index" class="col-12">
-			<div class="media-wraaper shadow">
+			<div class="media-wraaper2 shadow">
 				<div class="media-left">
 					<img :src="item.logo" class="avatar-lg link" />
 					<p>{{ item.topicName }}</p>

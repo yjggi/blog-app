@@ -2,20 +2,20 @@
 	<div class="row">
 		<div v-for="(item, index) in articles" :key="index" class="col-12">
 			<div class="media-wraaper bg shadow">
-				<div class="media-left">
+				<!-- <div class="media-left">
 					<router-link :to="{ path: '/user/' + item.article.userId }">
 					<img :src="item.author.avatar" class="avatar-lg link" />
 					</router-link>
 					<p>{{ item.author.nickname }}</p>
 					<strong>来自</strong>
 					<p>{{ item.topic.topicName }}</p>
-				</div>
+				</div> -->
 				<div class="media-middle flex flex-left">
 					<router-link :to="{ path: '/article/' + item.article.id }">
-						<p>
+						<div class="subtitle">
 							<span>{{ item.article.id }}</span>
 							{{ item.article.title }}
-						</p>
+						</div>
 					</router-link>
 					<p class="sub-title link">{{ item.article.summary }}</p>
 					<p>

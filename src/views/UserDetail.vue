@@ -1,14 +1,16 @@
 <template>
-	<div class="container">
-		<div class="banner flex flex-center"><img :src="userVo.user.banner" class="cover shadow" /></div>
-		<div class="info">
-			<img :src="userVo.user.avatar" class="avatar" />
+	<div class="container box">
+		<div class="banner flex flex-center">
+			<img :src="userVo.user.banner" class="cover shadow" />
+			<div class="info m-1">
+				<img :src="userVo.user.avatar" class="avatar " />
 			
 			
-			<p>{{ userVo.user.nickname }}</p>
-			<!-- <p>{{ userVo.user.introduction.slice(0, 20) }}...</p> -->
+				<p>{{ userVo.user.nickname }}</p>
+				<!-- <p>{{ userVo.user.introduction.slice(0, 20) }}...</p> -->
+			</div>
 		</div>
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-8">
 				<div class="col-12" v-for="(item, index) in userVo.articleList" :key="index">
 					<div class="media-wraaper shadow">
@@ -31,7 +33,7 @@
 				</div>
 			</div>
 			<div class="col-4"></div>
-		</div>
+		</div> -->
 	</div>
 </template>
 
@@ -89,7 +91,7 @@ export default {
 	color: #fff;
 	margin-bottom: -50px;
 	padding: 10px;
-	background-color: rgb(0, 0, 0, 0.3);
+	background-color: rgb(0, 0, 0,);
 	width: 130px;
 	height: 130px;
 	margin: 0 auto;
@@ -113,5 +115,14 @@ export default {
 }
 .row-bt input{
 	margin-left: 5px;
+}
+.box{
+	position: relative;
+	
+}
+.m-1{
+	position: absolute;
+	top: 200px;
+	left: 0px;
 }
 </style>

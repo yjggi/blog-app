@@ -20,7 +20,7 @@
 			<div class="col-8">
 				<h3>热门文章</h3>
 				<div v-for="(item, index) in articles" :key="index" class="col-12">
-					<div class="media-wraaper border ">
+					<div class="media-wraaper border shadow">
 						<!-- <div class="media-left">
 							<router-link :to="{ path: '/user/' + item.article.userId }">
 							<img :src="item.author.avatar" class="avatar-lg link" />
@@ -29,7 +29,7 @@
 							<strong>来自</strong>
 							<p>{{ item.topic.topicName }}</p>
 						</div> -->
-						<div class="media-middle flex flex-around flex-left">
+						<div class="media-middle flex flex-around flex-left ">
 							<div class="text-box">
 								<router-link :to="{ path: '/article/' + item.article.id }">
 								<div class="subtitle">
@@ -51,14 +51,14 @@
 			<div class="col-4">
 				<h3>热门作者</h3>
 				<div v-for="(item, index) in users" :key="index" class="row" >
-					<div class="col-12 border box-box">
+					<div class="col-12 border box-box shadow">
 						<div class="flex-center-y">
 							<router-link :to="{ path: '/user/' + item.id }">
 							<img :src="item.avatar" class="avatar-xs link" />
 							</router-link>
 							<p class="sub-title">{{ item.nickname }}</p>
 						</div>
-						<div class="flex-center-y">
+						<div class="flex-center-y m-2">
 							<p class="meta">{{ item.fans }}粉丝</p>
 							<p class="meta">{{ item.articles }}篇文章</p>
 						</div>
@@ -73,15 +73,31 @@
 						<div class="flex-center-y">
 							
 							
-							
-							<button v-if="isDao.isThumbUp!==true" class="btn btn-follow"  @click="changeThumbUps(isDao,item)">
+						
+							<!-- <button v-if="isDao.isThumbUp!==true" class="btn btn-follow"  @click="changeThumbUps(isDao,item)">
 								关注</button>
 							<button v-if="isDao.isThumbUp===true" class="btn btn-follow"  @click="changeThumbUps(isDao,item)">
+								已关注</button> -->
+						</div>
+					</div>
+					
+				</div>
+				<div v-for="(text, index) in List" :key="index" class="row m-1" >
+					<div class="col-12  box-box ">
+						<div class="flex-center-y">
+							
+							
+						
+							<button v-if="text.ist!==true" class="btn btn-follow"  @click="changeThumbUps(text)">
+								关注</button>
+							<button v-if="text.ist===true" class="btn btn-follow"  @click="changeThumbUps(text)">
 								已关注</button>
 								<!-- :class="{'btn-follow':item.isThumbUp!==true}" -->
 							</div>
-					</div>
+						</div>
+					
 				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -91,12 +107,63 @@
 export default {
 	data() {
 		return {
-			articles: [],
+			articles: [{}],
 			users: [],
 			topics: [],
 			isDao:{
-				"isThumbUp": true,
-			}
+				"isThumbUp": true
+			},
+			List:[
+				{
+					"id":1,
+					"ist":0
+				},
+				{
+					"id":2,
+					"ist":0
+				},
+				{
+					"id":3,
+					"ist":1
+				},
+				{
+					"id":4,
+					"ist":1
+				},
+				{
+					"id":5,
+					"ist":0
+				},
+				{
+					"id":6,
+					"ist":0
+				},
+				{
+					"id":7,
+					"ist":1
+				},
+				{
+					"id":8,
+					"ist":1
+				},
+				{
+					"id":9,
+					"ist":0
+				},
+				{
+					"id":10,
+					"ist":1
+				},
+				{
+					"id":11,
+					"ist":0
+				},
+				{
+					"id":12,
+					"ist":1
+				},
+			]
+			
 			
 		};
 	},
@@ -115,19 +182,13 @@ export default {
 		});
 	},
 	methods: {
-		changeThumbUps(isDao) {
-			if (isDao.isThumbUp == true) {
-				isDao.isThumbUp = false
-				// item.thumbUpCount--
+		changeThumbUps(text) {
+			if (text.ist == true) {
+				text.ist = false
 			} else {
-				isDao.isThumbUp = true
-				// item.thumbUpCount++
+				text.ist = true
 			}
 		},
-		// chan(item,isDao){
-		// 	isDao.isThumbUp=item.status
-		// }
-		
 	}
 };
 </script>
@@ -153,8 +214,22 @@ export default {
 	justify-content: space-around;
 	height: 70px;
 	/* padding: 10px; */
+	/* border: 10px solid #000000; */
 }
 .text2{
 	height: 100%;
 }
+.m-1{
+	position: relative;
+	top: -1100px;
+	left: 100px;
+}
+.m-2{
+	position: relative;
+	left: -30px;
+}
+/* .border{
+	
+	background-color: #00FF7F;
+} */
 </style>
