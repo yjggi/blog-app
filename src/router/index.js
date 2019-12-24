@@ -18,6 +18,7 @@ import Search from '@/views/Search.vue'
 import SearchUser from '@/views/SearchUser.vue'
 import SearchTopic from '@/views/SearchTopic.vue'
 import SearchArticle from '@/views/SearchArticle.vue'
+import Personal from '@/views/Personal.vue'
 
 
 import Basic from '@/views/Basic.vue'
@@ -52,6 +53,7 @@ const routes = [{
 				path: 'topics',
 				component: Topics
 			},
+
 			{
 				path: 'topic/:id',
 				component: TopicDetail
@@ -84,13 +86,14 @@ const routes = [{
 						{
 							path: 'user',
 							component: SearchUser
-						}
+						},
 					]
 			},
 			{
 				path: 'empty',
 				component: Empty
-			}
+			},
+			
 		]
 	},
 	{
@@ -100,7 +103,11 @@ const routes = [{
 	{
 		path: '/sign-up',
 		component: SignUp
-	}
+	},
+	{
+		path: '/personal',
+		component: Personal
+	},
 ]
 
 const router = new VueRouter({

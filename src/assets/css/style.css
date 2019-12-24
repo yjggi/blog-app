@@ -35,9 +35,15 @@
 	-webkit-text-stroke-width: 0.2px;
 	-moz-osx-font-smoothing: grayscale;
 }
+.h-text:hover{
+	text-shadow: 0px 0px 3px #000;
+}
+.h-img:hover{
+	box-shadow: 0px 0px 3px #000;
+}
 body{
-	background-image: url(../img/bj5.jpg);
-	background-size: 100% 500px;
+	background-image: url(../img/0001.jpg);
+	background-size: 100% 1100px;
 	background-attachment: fixed;
 }
 
@@ -108,7 +114,7 @@ p {
 
 /* ---------主题设置----------- */
 .primary-fill {
-	background-color: rgb(0, 160, 216);
+	background-color: rgb(0, 0, 0,0.1);
 	color: #fff;
 }
 
@@ -120,6 +126,9 @@ p {
 .warning-fill {
 	background-color: rgb(141, 197, 242);
 	color: #fff;
+}
+.c-color{
+	color: rgb(141, 197, 242);
 }
 
 .warning-border {
@@ -338,7 +347,7 @@ p {
 	font-weight: 700;
 }
 
-.media-right img {
+.media-left img {
 	width: 95%;
 	height: 80%;
 	border-radius: 10px;

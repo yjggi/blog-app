@@ -6,14 +6,14 @@
 				<img :src="userVo.user.avatar" class="avatar " />
 			
 			
-				<p>{{ userVo.user.nickname }}</p>
+				<p class="t-1">{{ userVo.user.nickname }}</p>
 				<!-- <p>{{ userVo.user.introduction.slice(0, 20) }}...</p> -->
 			</div>
 		</div>
-		<!-- <div class="row">
+		<div class="row t-2">
 			<div class="col-8">
 				<div class="col-12" v-for="(item, index) in userVo.articleList" :key="index">
-					<div class="media-wraaper shadow">
+					<div class="media-wraaper shadow ">
 						<div class="media-left"><img :src="item.article.thumbnail" class="thumnail-xs" /></div>
 						<div class="media-middle">
 							<router-link :to="{ path: '/article/' + item.article.id }">
@@ -24,7 +24,7 @@
 							<p class="sub-title">{{ item.article.summary }}</p>
 						</div>
 						<div class="row-bt">
-							<router-link :to="{ path: '/article/' + item.article.id }"><input type="button" value="编辑"></router-link>
+							<!-- <router-link :to="{ path: '/article/' + item.article.id }"><input type="button" value="编辑"></router-link> -->
 							<input type="button" value="删除" @click="delate(item.article.id)"/>
 							
 						</div>
@@ -32,8 +32,34 @@
 					
 				</div>
 			</div>
-			<div class="col-4"></div>
-		</div> -->
+			<div class="col-4">
+				<div v-if="userVo.user.id==user.id">
+					<div class="p-card">
+						
+						<router-link to="/Personal">
+							<button type="info" plain class="p-bt">修改个人中心</button>
+						</router-link>
+						<div class="p-text">
+							<p>昵称:{{userVo.user.nickname}}</p>
+							<p>性别:{{userVo.user.gender}}</p>
+							<p>地址:{{userVo.user.address}}</p>
+							<p>简介:{{userVo.user.introduction}}</p>
+							
+						</div>
+
+						
+						
+						
+						
+						
+					</div>
+
+
+				</div>
+
+
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -41,6 +67,15 @@
 export default {
 	data() {
 		return {
+			user: JSON.parse(localStorage.getItem('user')),
+			userDto: {
+								
+					nickname:'',
+					gender:'',
+					address: '',
+					introduction:'',
+								
+			},
 			userVo: {
 				user: {},
 				articleList: {}
@@ -69,12 +104,42 @@ export default {
 				}
 			});
 			
-		}
+		},
+					upda(userDto) {
+						this.axios({
+							method: 'post',
+							url: this.GLOBAL.baseUrl + '/user/change',
+							data: JSON.stringify(this.userDto)
+						}).then(res => {
+							if (res.data.msg === '成功') {
+								alert('更新成功');
+								this.$router.push('');
+							} else {
+								alert(res.data.msg);
+							}
+						});
+					}
 	}
 };
 </script>
 
 <style scoped="scoped">
+.p-card{
+	width: 100%;
+	height: 400px;
+	
+	
+}
+.p-text{
+	margin-left: 400px;
+	height: 100px;
+	font-size: 60px;
+	
+}
+.p-bt{
+	margin-left: 400px; 	
+	height: 30px;
+}
 .banner {
 	width: 100%;
 	height: 300px;
@@ -107,6 +172,8 @@ export default {
 }
 .row {
 	margin-top: -50px;
+	width: 100%;
+	
 }
 .row-bt{
 	position: relative;
@@ -124,5 +191,15 @@ export default {
 	position: absolute;
 	top: 200px;
 	left: 0px;
+}
+.t-1{
+	position: relative;
+	top: -90px;
+	left: 70px;
+}
+.t-2{
+	position: relative;
+	top: 50px;
+	left: -35px;
 }
 </style>

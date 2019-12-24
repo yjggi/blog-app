@@ -2,7 +2,7 @@
 	<div>
 		<div class="row">
 			<div v-for="(item, index) in topics" :key="index" class="col-4 flex flex-center">
-				<div class="card shadow flex flex-top-y p-1">
+				<div class="card shadow flex flex-top-y p-1 ">
 					<div class="card-head flex flex-center">
 						<router-link :to="{ path: '/topic/' + item.id }"><img :src="item.logo" class="p-2" /></router-link>
 						<p class="title p-3">{{ item.topicName }}</p>
@@ -112,5 +112,12 @@ export default {
 	position: absolute;
 	left: 170px;
 	top: 40px;
+	color: rgb(141, 197, 242);
+}
+.p-3:hover{
+	text-shadow: 0px 0px 3px #000;
+}
+img:hover{
+	box-shadow: 1px 1px 3px #000000;
 }
 </style>

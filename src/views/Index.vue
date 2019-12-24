@@ -1,42 +1,25 @@
 <template>
 	<div class="box">
-		<!-- <div class="row ">
-			<div class="col-3" v-for="(item, index) in topics" :key="index">
-				<div class="card link shadow">
-					<router-link :to="{ path: '/topic/' + item.id }"><img :src="item.logo" class="logo" /></router-link>
-					<p class="title">{{ item.topicName }}</p>
-					<p class="sub-title">{{ item.description.slice(0, 20) }}...</p>
-					<p class="meta">
-						<span class="gutter">{{ item.articles }}篇文章,</span>
-						<span>{{ item.follows }}人关注</span>
-					</p>
-				</div>
-			</div>
-		</div> -->
-
+		
 		<div class="row">
-			<img src="../assets/img/222.jpg" class="imgg">
+			<img src="../assets/img/12345.png" class="imgg">
 			
-			<div class="col-8">
+			<div class="col-8 ">
 				<h3>热门文章</h3>
-				<div v-for="(item, index) in articles" :key="index" class="col-12">
-					<div class="media-wraaper border shadow">
-						<!-- <div class="media-left">
-							<router-link :to="{ path: '/user/' + item.article.userId }">
-							<img :src="item.author.avatar" class="avatar-lg link" />
-							</router-link>
-							<p>{{ item.author.nickname }}</p>
-							<strong>来自</strong>
-							<p>{{ item.topic.topicName }}</p>
-						</div> -->
-						<div class="media-middle flex flex-around flex-left ">
+				<div v-for="(item, index) in articles" :key="index" class="col-12 ">
+					
+					<div class="media-wraaper border shadow d-box">
+						
+						<div class="media-left "><img :src="item.article.thumbnail" alt="" class="text2 h-img" /></div>
+						
+						<div class="media-middle flex flex-around flex-right ">
 							<div class="text-box">
 								<router-link :to="{ path: '/article/' + item.article.id }">
 								<div class="subtitle">
-									 {{ item.article.title }} 
+									<p class=" h-text"> {{ item.article.title }} </p>
 								</div>
 								</router-link>
-								<p class="sub-title link">{{ item.article.summary }}</p>
+								<p class="sub-title link c-color">{{ item.article.summary }}</p>
 							</div>
 							
 							<p>
@@ -44,7 +27,7 @@
 								<span class="meta"><i class="iconfont">&#xe615;</i><span class="advance-btn">{{ item.article.likes }}</span></span>
 							</p>
 						</div>
-						<div class="media-right "><img :src="item.article.thumbnail" alt="" class="text2" /></div>
+						
 					</div>
 				</div>
 			</div>
@@ -54,7 +37,7 @@
 					<div class="col-12 border box-box shadow">
 						<div class="flex-center-y">
 							<router-link :to="{ path: '/user/' + item.id }">
-							<img :src="item.avatar" class="avatar-xs link" />
+							<img :src="item.avatar" class="avatar-xs link h-img" />
 							</router-link>
 							<p class="sub-title">{{ item.nickname }}</p>
 						</div>
@@ -116,55 +99,45 @@ export default {
 			List:[
 				{
 					"id":1,
-					"ist":0
+					"ist":false
 				},
 				{
 					"id":2,
-					"ist":0
+					"ist":true
 				},
 				{
 					"id":3,
-					"ist":1
+					"ist":false
 				},
 				{
 					"id":4,
-					"ist":1
+					"ist":true
 				},
 				{
 					"id":5,
-					"ist":0
+					"ist":true
 				},
 				{
 					"id":6,
-					"ist":0
+					"ist":false
 				},
 				{
 					"id":7,
-					"ist":1
+					"ist":false
 				},
 				{
 					"id":8,
-					"ist":1
+					"ist":true
 				},
 				{
 					"id":9,
-					"ist":0
+					"ist":false
 				},
 				{
 					"id":10,
-					"ist":1
-				},
-				{
-					"id":11,
-					"ist":0
-				},
-				{
-					"id":12,
-					"ist":1
+					"ist":true
 				},
 			]
-			
-			
 		};
 	},
 	created() {
@@ -194,6 +167,10 @@ export default {
 </script>
 
 <style scoped="scoped">
+	.d-box{
+		margin-top: 32px;
+	}
+	
 .logo {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -228,6 +205,11 @@ export default {
 	position: relative;
 	left: -30px;
 }
+.btn:hover{
+	box-shadow: 0px 0px 3px #000;
+}
+
+/* rgb(141, 197, 242) */
 /* .border{
 	
 	background-color: #00FF7F;

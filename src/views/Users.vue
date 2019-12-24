@@ -6,7 +6,7 @@
 					<div class="card-head flex flex-center">
 						<p class="title">{{ item.nickname }}</p>
 							<router-link :to="{ path: '/user/' + item.id }">
-						<img :src="item.avatar" />
+						<img :src="item.avatar" class="h-img"/>
 						</router-link>
 					</div>
 					<div class="card-body flex flex-left">

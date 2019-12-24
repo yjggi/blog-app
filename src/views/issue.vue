@@ -3,7 +3,7 @@
 		<div class="bl-col-8 left">
 			<div msgborder class="say-box">
 				<input type="hidden"  v-model="articleDao.userId=user.id" class="borderwrite"/>
-				<input type="text" v-model="articleDao.title" class="border" msgborder placeholder="标题"/>
+				<input type="text" v-model="articleDao.title" class="say-box2" msgborder placeholder="标题"/>
 				<br>
 				<br>
 				<textarea class="say-box2" msgborder placeholder="这里是简介" type="text" v-model="articleDao.summary" ></textarea>
@@ -206,6 +206,10 @@
 		}
 	.say-box{
 		margin: 10px 10px 5px;
+		text-align: center;
+		position: relative;
+		top: 300px;
+		left: -150px;
 	}
 	.say-box1 {
 	    font-family: STFangsong;
@@ -218,7 +222,7 @@
 	    border-radius: 6px;
 	    -webkit-box-sizing: border-box;
 	    box-sizing: border-box;
-	    width: 100%;
+	    width: 60%;
 	    height: 100px;
 	    -webkit-box-shadow: 0 0 8px rgba(0,0,0,.4);
 	    box-shadow: 0 0 8px rgba(0,0,0,.4);

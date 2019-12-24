@@ -1,86 +1,63 @@
 <template>
 	<div id="bg">
-		<div class="header">
-						
-					<img src="../assets/img/header.jpg" >
-					<!-- https://s1.hdslb.com/bfs/static/passport/static/img/loadTV.99606e2.gif -->
-			</div>
+		<div class="heads">
+			<router-link to="/index">
+				<p>首页</p>
+			</router-link>
+		</div>
+		<div class="container-sign">
 			<img src="https://s1.hdslb.com/bfs/static/passport/static/img/loadTV.99606e2.gif" class="tv-img">
-				<div class="container">
-					
-					<div class="head">
+					<div class="container">
 						
-						<span class="tab-item"><router-link to="/sign-in">登录</router-link></span>
-						<span class="tab-item"><router-link to="/sign-up">注册</router-link></span>
-						
-					</div>
-					
-					<div class="box">
-						
-						<div class="left">
+						<div class="head">
 							
-							<div class="pp">
-								<p>扫码登录</p>
-								<p>或扫码下载APP</p>
-							</div>
-							<div class="ee"><img src="../assets/img/1111.png"></div>
+							<span class="tab-item"><router-link to="/sign-in">登录</router-link></span>
+							<span class="tab-item"><router-link to="/sign-up">注册</router-link></span>
 							
-							<div>
-								<img src="https://s1.hdslb.com/bfs/static/passport/static/img/2233login.af9c53d.png" >
-							</div>
 						</div>
 						
-						
-						 <form class="right">
-							<!-- <div class="tab-box" v-if="show&&selected===0">
-								<div class="right-body">
-									
-									<input type="text"  placeholder="你的手机号／邮箱" class="text-input" v-model="userDto.mobile" id="mobile"/>
-									
-									<input type="password"   placeholder="密码" class="text-input" v-model="userDto.password"/>
-									<div>
-										<input type="text" class="right-body-input" placeholder="请输入验证码" v-model="userDto.code"/>
-									
-										<img class="verify" @click.prevent="refresh" ref="codeImg" />
-									</div>
-									
-									
-									<div style="display: flex; align-items: center;">
-										<input type="checkbox">
-										<span style="margin-left: 5px; font-size: 12px; color: #000000;" >记住我(不是自己的电脑上不要勾选此项)</span>
-									</div>
-									
-									<input type="button" value="登录" class="text-input" @click="signIn(userDto)"/>
+						<div class="box">
+							
+							<div class="left">
+								
+								<div class="pp">
+									<p>扫码登录</p>
+									<p>或扫码下载APP</p>
 								</div>
-							</div>	 -->
-							
-							
-							
-							<div class="tab-box">	
-							<!-- <div class="tab-box" > -->
-								<div class="right-body2">
-									<input type="text"  placeholder="填写常用手机号" class="text-input" v-model="userDto.mobile" id="mobile"/>
-									
-									<input type="password"   placeholder="密码(6到16个字符组成,区分大小写)" class="text-input" v-model="userDto.password" />
-									
-									
-									<div style="display: flex; align-items: center;">
-										<input type="checkbox">
-										<span style="margin-left: 5px; font-size: 12px; color: #000000;" >我已同意《哔哩哔哩弹幕网用户使用协议》</span>
-									</div>
-									<!-- <div>
-										<input type="text" class="right-body-input" placeholder="请输入验证码" v-model="userDto.code"/>
-										<img class="verify" @click.prevent="refresh" ref="codeImg" />
-									</div> -->
-									<input type="button" class="text-input" value="注册" @click="signUp(userDto)" />
+								<div class="ee"><img src="../assets/img/1111.png"></div>
+								
+								<div>
+									<img src="https://s1.hdslb.com/bfs/static/passport/static/img/2233login.af9c53d.png" >
 								</div>
 							</div>
-						</form> 
-						
-					</div>
-				
+							
+							
+							 <form class="right">
+			
+								
+								
+								
+								<div class="tab-box" >	
+									<div class="right-body" >
+										<input type="text"  placeholder="填写常用手机号" class="text-input" v-model="userDto.mobile" id="mobile"/>
+										
+										<input type="password"   placeholder="密码(6到16个字符组成,区分大小写)" class="text-input" v-model="userDto.password" />
+										<div style="display: flex; align-items: center;">
+											<input type="checkbox">
+											<span style="margin-left: 5px; font-size: 12px; color: #000000;" >我已同意《哔哩哔哩弹幕网用户使用协议》</span>
+										</div>
+										
+										<input type="button" class="text-input" value="注册" @click="signUp(userDto)" />
+									</div>
+								</div>
+							</form> 
+							
+						</div>
+					
+				</div>
 			</div>
 		</div>
+
 	</div>
 </template>
 
@@ -125,9 +102,33 @@ export default {
 	height: 100%;
 	background-image: url(../assets/img/topic.png);
 	} */
+	.heads{
+		width: 100%;
+		/* height: 100px; */
+		/* background-color: white; */
+		
+	}
+	.heads p{
+		margin-top: 10px;
+		font-size:25px;
+	}
+	.text-input{
+		font-size: 18px;
+		
+		width:100%;
+		height: 40px;
+		margin-top:20px;
+		margin-bottom: 39px;
+		background-color: rgba(255,255,255,0.0);
+		border-radius: 5px;
+	}
 	*{
 		margin: 0;
 		padding: 0;
+	}
+	.container-sign{
+		position: relative;
+		top: 150px;
 	}
 	/* body{
 		background-color: #00BBDD;
@@ -182,11 +183,11 @@ export default {
 	.head{				
 		width: 100%;
 		height: 60px;
-		background-color: #FFFFFF;					
+			
 		text-align: center;	
 		font-size: 40px;
 		position: relative;
-		right: -10px;
+		right: -240px;
 		/* margin-top: -80px; */
 		
 	}
@@ -231,9 +232,9 @@ export default {
 	.tv-img{
 		position: relative;
 		top: -10px;
-		left: 260px;
+		left: 400px;
 		/* 优先级 */
-		z-index: 100;
+
 	}
 	/* 文字 */
 	
@@ -241,7 +242,7 @@ export default {
 		text-align: center;
 		position: relative;
 		top: 250px;
-		left: 2px;
+		left: -22px;
 	}
 	.right-body-input{
 		width: 150px;
@@ -255,6 +256,7 @@ export default {
 		padding-top: 40px;
 		margin: 0 auto;
 		height: 100%;
+		
 	}
 	.right-body img{
 		width: 90px;
@@ -279,14 +281,9 @@ export default {
 	.right-body input{
 		border-radius:5px;
 		border-width: 1px;
+		margin-bottom: ;
 	}
-	.text-input{
-		font-size: 18px;
-		
-		width:100%;
-		height: 40px;
-		margin-top:20px;
-	}
+
 	.register{
 		text-align: center;
 		width: 100%;

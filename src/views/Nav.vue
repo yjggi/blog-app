@@ -12,13 +12,13 @@
 				</ul>
 				<ul class="bl-df-left box-left">
 					<li class="nav-item"><input type="text" class="input-box" placeholder="请输入搜索内容" v-model="keywords" /></li>
-					<li class="nav-item"><i class="iconfont2 bt3" @click="search">&#xe602;</i></li>
+					<li class="nav-item"><i class="iconfont2 bt3 h-text" @click="search">&#xe602;</i></li>
 					<!-- <button class="btn btn-lg btn-rd dark-border warning-fill" @click="search">搜索</button> -->
 				</ul>
 				<ul class="bl-df-left box-right">
 					<li class="nav-item box-text" v-if="!this.user"><router-link to="/sign-in">登录</router-link></li>
-						<router-link :to="{ path: '/user/' + user.id }" v-if="this.user"><img :src="user.avatar" @mouseenter="this.show = true" class="avatar-xs " /></router-link>
-					<li class="nav-item" v-if="this.user"><a class="link bt" @click="logout"><i class="iconfont1">&#xe60b;</i></a></li>
+						<router-link :to="{ path: '/user/' + user.id }" v-if="this.user"><img :src="user.avatar" @mouseenter="this.show = true" class="avatar-xs h-img" /></router-link>
+					<li class="nav-item" v-if="this.user"><a class="link bt" @click="logout"><i class="iconfont1 h-text">&#xe60b;</i></a></li>
 				</ul>
 			</div>
 		</div>
@@ -53,8 +53,8 @@ export default {
 </script>
 <style scoped>
 a:hover{
-	color: rgb(141, 197, 242);
-	text-shadow: 1px 1px 3px #fff;
+	color: rgb(0, 0, 0,0.2);
+	text-shadow: 0px 0px 10px #0088DD;
 }
 /* 路由激活高亮样式 */
 .router-link-active {

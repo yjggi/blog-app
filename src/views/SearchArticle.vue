@@ -9,8 +9,8 @@
 					<p>{{ item.author.nickname }}</p>
 					<strong>来自</strong>
 					<p>{{ item.topic.topicName }}</p>
-				</div> -->
-				<div class="media-middle flex flex-left">
+				</div> --><div class="media-left"><img :src="item.article.thumbnail" /></div>
+				<div class="media-middle flex flex-right">
 					<router-link :to="{ path: '/article/' + item.article.id }">
 						<div class="subtitle">
 							<span>{{ item.article.id }}</span>
@@ -23,7 +23,7 @@
 						<span class="meta"><i class="iconfont">&#xe615;</i><span class="advance-btn">{{ item.article.likes }}</span></span>
 					</p>
 				</div>
-				<div class="media-right"><img :src="item.article.thumbnail" /></div>
+				
 			</div>
 		</div>
 	</div>
